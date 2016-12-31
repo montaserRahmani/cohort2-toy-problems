@@ -17,3 +17,21 @@
 * rockPaperScissors(5); // => [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 *
 */
+
+function rockPaperScissors(){
+	var strings=[['rock', 'paper', 'scissors'],['rock', 'paper', 'scissors'],['rock', 'paper', 'scissors']];
+    var result = [], max = 2;
+    function crossProduct(arr, i) {
+        for (var j=0; j<strings[i].length; j++) {
+            var a = arr.slice(0); // clone arr
+            a.push(strings[i][j]);
+            if (i==max)
+                result.push(a);
+            else
+                crossProduct(a, i+1);
+        }
+    }
+    crossProduct([], 0);
+    return result;
+}
+
