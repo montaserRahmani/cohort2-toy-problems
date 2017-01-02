@@ -24,7 +24,21 @@
  *	"())"
  */
 
- var balancedParens = function (input) {
-	
- };
-	
+  var balancedParens = function (input) {
+    input=input.split("");
+      var arr=[];
+      var openParanth=["(","[","{"];
+      var closeParanth=[")","]","}"];
+      for(var i =0; i<input.length; i++){
+        if(openParanth.includes(input[i])){
+          arr.push(input[i]);
+        } else if(closeParanth.includes(input[i])){
+            if(arr.length <1 || openParanth.indexOf(arr.pop()) !== closeParanth.indexOf(input[i])){
+              return false;
+            }
+        }
+      }
+      if(arr.length > 0)
+        return false;
+      return true;
+  };
