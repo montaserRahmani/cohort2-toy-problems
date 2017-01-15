@@ -1,1 +1,1 @@
-# cohort2-toy-problems
+# Toy Problems
