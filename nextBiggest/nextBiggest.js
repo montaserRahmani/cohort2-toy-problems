@@ -72,10 +72,10 @@ nextBigger(531)==-1
 //not working for 2017
 function nextBigger(num){
    var max = num;
-   var flag =false;
+   var original = num;
    num=num.toString().split('');
    for(var i=num.length-1; i>=0; i--){
-    if(max > parseInt(num.join(""))) {break;}
+    if(max > original) {break;}
       for(var j=num.length-1; j>=0; j--){
         var temp = num[i];
         num[i] = num[j];
@@ -87,5 +87,5 @@ function nextBigger(num){
       }
 
    }
-   return max === parseInt(num.join("")) ? -1 : max;
+   return max;
 }
