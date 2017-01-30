@@ -38,9 +38,16 @@
 var add2 = function(number){ return number + 2; }
 var multiplyBy3 = function(number){ return number * 3; }
 
+
 var pipe = function(func1,func2){
-  
+  //this will take the arguments and apply it to the compose function
+  //because .apply sends array as parameters to the called function
+  //then return the final result;
+  var args = Array.from(arguments);
+  //reverse the order because it should call it from right to left
+  return compose.apply(null, args.reverse());
 };
+
 
 var addAndMultiplyTwice = pipe(add2, multiplyBy3, multiplyBy3);
 
@@ -50,7 +57,19 @@ var addAndMultiplyTwice = pipe(add2, multiplyBy3, multiplyBy3);
  var exclaim = function(statement) { return statement.toUpperCase() + '!';}
 
 var compose = function(){
-  
+  var args = Array.from(arguments);
+  var resultFunc = function(param){
+    //iterate through functions list in reverse order so the last return value
+    //is passed to the next function, along to the first call and then return result
+    for (var i = args.length-1 ; i >= 0; i--) {
+      param =  args[i].call(this, param)
+    }
+    //return the result of the first function call
+    return param;
+  };
+
+  //return the function
+  return resultFunc;
 };
 
 
