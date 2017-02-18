@@ -57,4 +57,6 @@ Array.prototype.findSubArrays = function(arr, str){
 		}
 	}
 	return false;
+Array.prototype.isSubsetOf = function (arr) {
+
 }

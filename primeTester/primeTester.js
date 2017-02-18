@@ -37,6 +37,7 @@ var primeNumbers = function(from, to) {
 	}
 
 	return result;
+var primeTester = function(n) {
 }
 
  /* Extra credit: Write a function that generates a list of all prime numbers
