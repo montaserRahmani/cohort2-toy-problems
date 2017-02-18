@@ -110,3 +110,4 @@ Tree.prototype.removeChild = function(child){
   }
   return 'child not found';
 };
+
